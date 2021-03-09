@@ -1,0 +1,125 @@
+{
+  "_id": "6046fe815bda4eaa7441b0a9",
+  "pipelineId": "a3382438-8cc7-4a35-8583-082e764dd5a8",
+  "tenantId": "5ade13625558f2c6688d15ce",
+  "description": null,
+  "query": "",
+  "phases": [
+    {
+      "name": "Planning",
+      "description": "",
+      "stages": [
+        {
+          "name": "Backlog",
+          "query": "issue.status=Backlog",
+          "description": "",
+          "wipLimit": null,
+          "gates": null
+        },
+        {
+          "name": "Selected for Development",
+          "query": "issue.status='Selected for Development' AND (pr.status!=open AND pr.status!=closed)",
+          "description": "",
+          "wipLimit": null,
+          "gates": null
+        }
+      ]
+    },
+    {
+      "name": "Development",
+      "description": "",
+      "stages": [
+        {
+          "name": "In Progress",
+          "query": "(issue.status='In Progress' OR pr.status=open) AND issue.status!='In Review'",
+          "description": "",
+          "wipLimit": 10,
+          "gates": null
+        },
+        {
+          "name": "In Review",
+          "query": "issue.status='In Review' AND pr.status=open",
+          "description": "",
+          "wipLimit": 5,
+          "gates": null
+        },
+        {
+          "name": "Merged",
+          "query": "issue.status=Merged OR pr.status=closed AND build.status!=success",
+          "description": "",
+          "wipLimit": null,
+          "gates": null
+        },
+        {
+          "name": "Build",
+          "query": "build.status=success AND deployment.env!=DEV",
+          "description": "",
+          "wipLimit": null,
+          "gates": null
+        }
+      ]
+    },
+    {
+      "name": "Deployment",
+      "description": "",
+      "stages": [
+        {
+          "name": "DEV",
+          "query": "deployment.env=ENV AND deployment.env!=QA",
+          "description": "",
+          "wipLimit": null,
+          "gates": null
+        },
+        {
+          "name": "QA",
+          "query": "deployment.env=QA AND deployment.env!=PROD",
+          "description": "",
+          "wipLimit": null,
+          "gates": null
+        },
+        {
+          "name": "PROD",
+          "query": "deployment.env=PROD",
+          "description": "",
+          "wipLimit": null,
+          "gates": null
+        }
+      ]
+    }
+  ],
+  "leadTime": {
+    "start": "Backlog",
+    "end": "PROD"
+  },
+  "cycleTime": {
+    "start": "In Progress",
+    "end": "PROD"
+  },
+  "mappings": {
+    "priority": {
+      "Lowest": [
+        "Lowest"
+      ],
+      "Low": [
+        "Low"
+      ],
+      "Medium": [
+        "Medium"
+      ],
+      "High": [
+        "High"
+      ],
+      "Highest": [
+        "Highest"
+      ]
+    }
+  },
+  "integrations": [
+    {
+      "name":"TheNextBankJIRA"
+    }
+  ],
+  "linkRules": [],
+  "metrics": null,
+  "metricsBar": null
+}

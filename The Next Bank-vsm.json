@@ -116,10 +116,34 @@
   },
   "integrations": [
     {
-      "name":"TheNextBankJIRA"
+      "_id": "60471742fa80a313cf4135bc",
+      "type": "ucv-ext-jira",
+      "tenant_id": "5ade13625558f2c6688d15ce",
+      "name": "TheNextBankJIRA",
+      "disabled": false,
+      "properties": {
+        "baseUrl": "https://accelerate-stevenckwong.atlassian.net/",
+        "username": "accelerate@stevenckwong.com",
+        "password": "****",
+        "jiraProjects": [
+          "NB"
+        ]
+      },
+      "image": "urbancode/ucv-ext-jira:1.0.39"
+    },
+    {
+      "name": "TheNextBankGithub"
     }
   ],
-  "linkRules": [],
+  "linkRules": [
+    {
+      "fromIntegrationName": "TheNextBankGithub",
+      "toIntegrationName": "TheNextBankJIRA",
+      "fromField": "pr.name",
+      "toField": "issue.id",
+      "pattern": "([A-Z]+-[0-9]+)"
+    }
+  ],
   "metrics": null,
   "metricsBar": null
 }

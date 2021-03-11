@@ -65,7 +65,7 @@
       "stages": [
         {
           "name": "DEV",
-          "query": "deployment.env=ENV AND deployment.env!=QA",
+          "query": "deployment.env=DEV AND deployment.env!=QA",
           "description": "",
           "wipLimit": null,
           "gates": null

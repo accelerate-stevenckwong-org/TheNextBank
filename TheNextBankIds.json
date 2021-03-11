@@ -1,0 +1,28 @@
+{
+  "pipelineId": "a3382438-8cc7-4a35-8583-082e764dd5a8",
+  "tenantId": "5ade13625558f2c6688d15ce",
+  "environments": [
+    {
+      "name": "Input",
+      "id": "26c623f1-dce6-4a29-b3c7-5f4b4bbacd54"
+    },
+    {
+      "name": "DEV",
+      "id": "bbee73fb-7999-4608-acab-a4e016859707"
+    },
+    {
+      "name": "QA",
+      "id": "dcef5ee5-e539-4200-9380-ce0000c6c08b"
+    },
+    {
+      "name": "PROD",
+      "id": "a2c24ed0-b729-4fbc-b245-a286bd6df888"
+    }
+  ],
+  "applications": [
+    {
+      "name": "TheNextBank",
+      "id": "42339895-c938-4d40-8671-daa3eaa91cbe"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
-  "_id": "6046fe815bda4eaa7441b0a9",
-  "pipelineId": "a3382438-8cc7-4a35-8583-082e764dd5a8",
+  "_id": "6049f820fd19b958daf43b9b",
+  "pipelineId": "2535c7b9-8ceb-4d36-9a94-ac387ee08416",
   "tenantId": "5ade13625558f2c6688d15ce",
   "description": null,
   "query": "",
@@ -38,14 +38,14 @@
         },
         {
           "name": "In Review",
-          "query": "issue.status='In Review' AND pr.status=open",
+          "query": "pr.status=open",
           "description": "",
           "wipLimit": 5,
           "gates": null
         },
         {
           "name": "Merged",
-          "query": "issue.status=Merged OR pr.status=closed AND build.status!=success",
+          "query": "pr.status=closed AND build.status!=success",
           "description": "",
           "wipLimit": null,
           "gates": null
@@ -116,7 +116,7 @@
   },
   "integrations": [
     {
-      "_id": "60471742fa80a313cf4135bc",
+      "_id": "6049fb1620a552b2e5a519ee",
       "type": "ucv-ext-jira",
       "tenant_id": "5ade13625558f2c6688d15ce",
       "name": "TheNextBankJIRA",
@@ -132,7 +132,21 @@
       "image": "urbancode/ucv-ext-jira:1.0.39"
     },
     {
-      "name": "TheNextBankGithub"
+      "_id": "6049fbd420a5525197a519f2",
+      "type": "ucv-ext-github",
+      "tenant_id": "5ade13625558f2c6688d15ce",
+      "name": "TheNextBankGithub",
+      "disabled": false,
+      "properties": {
+        "ucvAccessKey": "****",
+        "repositories": [
+          "TheNextBank"
+        ],
+        "owner": "accelerate-stevenckwong-org",
+        "apiUrl": "https://api.github.com",
+        "token": "****"
+      },
+      "image": "urbancode/ucv-ext-github:1.0.40"
     }
   ],
   "linkRules": [
